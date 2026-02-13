@@ -381,12 +381,33 @@
             // Using a royalty-free piano piece URL
             const musicUrl = "https://cdn.pixabay.com/audio/2025/01/09/audio_86584f47dc.mp3";
 
+            // Handle Play/Pause based on state
             useEffect(() => {
                 if (isPlaying) {
                     audioRef.current.play().catch(error => console.log("Audio play failed:", error));
                 } else {
                     audioRef.current.pause();
                 }
+            }, [isPlaying]);
+
+            // Handle Tab Focus/Blur
+            useEffect(() => {
+                const handleVisibilityChange = () => {
+                    if (document.hidden) {
+                        // Tab is hidden - pause audio but keep state strict
+                        audioRef.current.pause();
+                    } else {
+                        // Tab is visible - resume ONLY if isPlaying was true
+                        if (isPlaying) {
+                            audioRef.current.play().catch(e => console.log("Resume failed:", e));
+                        }
+                    }
+                };
+
+                document.addEventListener("visibilitychange", handleVisibilityChange);
+                return () => {
+                    document.removeEventListener("visibilitychange", handleVisibilityChange);
+                };
             }, [isPlaying]);
 
             const toggleMusic = () => {
@@ -1055,24 +1076,40 @@
                                     <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent mb-8"></div>
 
                                     {/* Schedule Day 1 */}
-                                    <div className="text-left mb-8 group/day hover:bg-white/5 p-4 rounded-lg transition-colors border border-transparent hover:border-yellow-500/20">
-                                        <h4 className="font-royal text-lg text-gold-gradient mb-3 border-b pb-1 inline-block" style={{ borderColor: `rgba(${themeRgb}, 0.5)` }}>5th April 2026</h4>
+                                    <div className="text-left mb-1 group/day hover:bg-white/5 p-4 rounded-lg transition-colors border border-transparent hover:border-yellow-500/20">
+                                        <h4 className="font-royal text-lg text-gold-gradient mb-3 border-b pb-1 inline-block" style={{ borderColor: `rgba(${themeRgb}, 0.5)` }}>4th April 2026 (Nashik)</h4>
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="font-body text-yellow-50 text-sm tracking-wide">Mehandi Function</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">05:00 PM</span>
+                                        </div>
+                                    </div>
+                                    {/* Schedule Day 2 */}
+                                    <div className="text-left mb-1 group/day hover:bg-white/5 p-4 rounded-lg transition-colors border border-transparent hover:border-yellow-500/20">
+                                        <h4 className="font-royal text-lg text-gold-gradient mb-3 border-b pb-1 inline-block" style={{ borderColor: `rgba(${themeRgb}, 0.5)` }}>5th April 2026 (Nagpur)</h4>
                                         <div className="flex justify-between items-center mb-2">
                                             <span className="font-body text-yellow-50 text-sm tracking-wide">Engagement</span>
-                                            <span className="font-mono text-yellow-500/80 text-xs">10:00 AM</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">01:00 PM</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="font-body text-yellow-50 text-sm tracking-wide">Sangeet</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">06:00 PM</span>
                                         </div>
                                     </div>
 
                                     {/* Schedule Day 2 */}
                                     <div className="text-left group/day hover:bg-white/5 p-4 rounded-lg transition-colors border border-transparent hover:border-yellow-500/20">
-                                        <h4 className="font-royal text-lg text-gold-gradient mb-3 border-b pb-1 inline-block" style={{ borderColor: `rgba(${themeRgb}, 0.5)` }}>6th April 2026</h4>
+                                        <h4 className="font-royal text-lg text-gold-gradient mb-3 border-b pb-1 inline-block" style={{ borderColor: `rgba(${themeRgb}, 0.5)` }}>6th April 2026 (Nagpur)</h4>
                                         <div className="flex justify-between items-center mb-2">
                                             <span className="font-body text-yellow-50 text-sm tracking-wide">Haldi Ceremony</span>
-                                            <span className="font-mono text-yellow-500/80 text-xs">11:00 AM</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">08:00 AM</span>
+                                        </div>
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="font-body text-yellow-50 text-sm tracking-wide font-bold">Wedding Ceremony</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">07:00 PM</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="font-body text-yellow-50 text-sm tracking-wide font-bold">Wedding Ceremony</span>
-                                            <span className="font-mono text-yellow-500/80 text-xs">05:35 PM</span>
+                                            <span className="font-body text-yellow-50 text-sm tracking-wide font-bold">Saptapadi</span>
+                                            <span className="font-mono text-yellow-500/80 text-xs">After Wedding </span>
                                         </div>
                                     </div>
 

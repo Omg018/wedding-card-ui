@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Wedding Invitation - Anup & Mayuri</title>
+    <title>Wedding Invitation - Anup & Mayuri</title>
 
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
 
     <style>
@@ -32,7 +32,7 @@
         }
 
         .font-script {
-            font-family: 'Pinyon Script', cursive;
+            font-family: 'Great Vibes', cursive;
         }
 
         .font-body {
@@ -928,42 +928,28 @@
                             </div>
 
                             {/* Intro Text */}
-                            {/* Intro Text with Background Image */}
-                            <div className="w-full relative py-12 mb-4 overflow-hidden rounded-2xl shadow-2xl border border-yellow-500/20">
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 transform scale-110"
-                                    style={{
-                                        backgroundImage: 'url("./background img.png")',
-                                        backgroundPosition: 'center 10%'
-                                    }}
-                                >
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#1a0524] via-[#1a0524]/60 to-transparent"></div>
-                                <div className="absolute inset-0 bg-gradient-to-b from-[#1a0524] via-transparent to-[#1a0524]"></div>
+                            <p className="font-royal text-yellow-200/80 text-xs tracking-[0.3em] uppercase mb-4 text-center">
+                                Together with their families
+                            </p>
 
-                                <div className="relative z-10">
-                                    <p className="font-royal text-yellow-200/90 text-xs tracking-[0.3em] uppercase text-center drop-shadow-md">
-                                        Together with their families
-                                    </p>
-                                </div></div>
+                            {/* Couple Names */}
+                            <div className="text-center relative py-8 w-full">
+                                <h1 className="font-script text-6xl sm:text-7xl text-gold-gradient leading-tight transform -rotate-2 drop-shadow-lg">
+                                    Anup
+                                </h1>
+                                <div className="font-royal text-2xl text-yellow-100/60 my-2">&</div>
+                                <h1 className="font-script text-6xl sm:text-7xl text-gold-gradient leading-tight transform rotate-2 drop-shadow-lg">
+                                    Mayuri
+                                </h1>
 
-                                {/* Couple Names */}
-                                <div className="text-center relative py-8 w-full">
-                                    <h1 className="font-script text-7xl sm:text-8xl text-gold-gradient leading-tight transform -rotate-2 drop-shadow-lg">
-                                        Anup
-                                    </h1>
-                                    <div className="font-royal text-2xl text-yellow-100/60 my-2">&</div>
-                                    <h1 className="font-script text-7xl sm:text-8xl text-gold-gradient leading-tight transform rotate-2 drop-shadow-lg">
-                                        Mayuri
-                                    </h1>
+                                {/* Background Glow behind names */}
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500/20 blur-[50px] -z-10 rounded-full"></div>
+                            </div>
 
-                                    {/* Background Glow behind names */}
-                                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500/20 blur-[50px] -z-10 rounded-full"></div>
-                                </div>
-                                </div>
-                                <p className="font-body italic text-purple-200/70 text-center mt-6 px-8 leading-relaxed">
-                                    Request the honor of your presence as we celebrate the beginning of our new chapter.
-                                </p>
-                            
+                            <p className="font-body italic text-purple-200/70 text-center mt-6 px-8 leading-relaxed">
+                                Request the honor of your presence as we celebrate the beginning of our new chapter.
+                            </p>
+
                             {/* Divider */}
                             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-yellow-500 to-transparent my-10"></div>
 

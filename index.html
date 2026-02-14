@@ -870,19 +870,7 @@
 
         // 7. Theme Selector Component (New)
         const ThemeSelector = ({ currentColor, onColorChange }) => {
-            return (
-                <div className="fixed bottom-4 left-4 z-[60] flex items-center gap-2 bg-black/40 backdrop-blur-md p-2 rounded-full border border-yellow-500/30">
-                    <label htmlFor="themeColor" className="text-yellow-100/70 text-[10px] font-royal uppercase tracking-wider ml-1 cursor-pointer">Theme</label>
-                    <input
-                        type="color"
-                        id="themeColor"
-                        value={currentColor}
-                        onChange={(e) => onColorChange(e.target.value)}
-                        className="w-6 h-6 rounded-full border-none cursor-pointer bg-transparent"
-                        style={{ padding: 0 }}
-                    />
-                </div>
-            );
+           
         };
 
         // 7. Main App Component
@@ -967,8 +955,10 @@
                             {/* Tap Trigger */}
                             {!curtainsOpen && (
                                 <div className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-auto cursor-pointer" onClick={handleOpenCurtains}>
+                                <img src="https://png.pngtree.com/png-vector/20240602/ourmid/pngtree-ganpati-sri-ganesh-gradient-golden-stroke-object-png-image_12596226.png" alt="Tap to open" className="w-40 h-40 rounded-full  flex items-center justify-center mb-6" />
                                     <div className="bg-black/40 backdrop-blur-sm p-6 rounded-full border border-yellow-500/30 animate-pulse">
-                                        <div className="w-24 h-24 rounded-full border-2 border-dashed border-yellow-200 flex items-center justify-center">
+                                    
+                                        <div className="w-24 h-24 rounded-full  flex items-center justify-center">
                                             <span className="font-royal text-gold-gradient text-sm tracking-widest font-bold">TAP TO OPEN</span>
                                         </div>
                                     </div>

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation - Anup & Mayuri</title>
 
+    <!-- Configuration (Local/Secret) -->
+    <script src="config.js"></script>
+
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -340,7 +343,11 @@
 
         // --- Gemini Integration ---
         const generateRoyalBlessing = async (name, relation) => {
-            const apiKey = "AIzaSyDwab2RiWSDtGPHoCL8o0CD0QCyozV_Mp4"; // Set at runtime
+            const apiKey = window.GOOGLE_API_KEY || "";
+
+            if (!apiKey) {
+                return "The Stars require a Key to speak. Please configure your API key.";
+            }
             const prompt = `
                 You are a Royal Scribe at the grand wedding of Anup and Mayuri. 
                 Write a short, elegant, and poetic 4-line blessing for the couple from a guest named "${name}" who is their "${relation || 'Well-wisher'}".
@@ -870,7 +877,7 @@
 
         // 7. Theme Selector Component (New)
         const ThemeSelector = ({ currentColor, onColorChange }) => {
-           
+
         };
 
         // 7. Main App Component
@@ -955,9 +962,9 @@
                             {/* Tap Trigger */}
                             {!curtainsOpen && (
                                 <div className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-auto cursor-pointer" onClick={handleOpenCurtains}>
-                                <img src="https://png.pngtree.com/png-vector/20240602/ourmid/pngtree-ganpati-sri-ganesh-gradient-golden-stroke-object-png-image_12596226.png" alt="Tap to open" className="w-40 h-40 rounded-full  flex items-center justify-center mb-6" />
+                                    <img src="https://png.pngtree.com/png-vector/20240602/ourmid/pngtree-ganpati-sri-ganesh-gradient-golden-stroke-object-png-image_12596226.png" alt="Tap to open" className="w-40 h-40 rounded-full  flex items-center justify-center mb-6" />
                                     <div className="bg-black/40 backdrop-blur-sm p-6 rounded-full border border-yellow-500/30 animate-pulse">
-                                    
+
                                         <div className="w-24 h-24 rounded-full  flex items-center justify-center">
                                             <span className="font-royal text-gold-gradient text-sm tracking-widest font-bold">TAP TO OPEN</span>
                                         </div>
